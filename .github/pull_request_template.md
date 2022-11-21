@@ -1,6 +1,3 @@
-# title
-<!-- pull request title -->
-
 ## 概要
 
 <!-- このPRについての説明 -->
