@@ -5,6 +5,9 @@ import type { FC } from "react";
 import { useTimer } from "@/hooks/utils/useTimer";
 import { isDaytime } from "@/utils/date";
 
+/**
+ * @package
+ */
 export const Time: FC = () => {
   const { today, nowTime } = useTimer();
 

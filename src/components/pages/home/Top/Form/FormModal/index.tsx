@@ -12,6 +12,9 @@ import type { FC } from "react";
 import { EmojiRating } from "@/components/ui/Parts/EmojiRating";
 import { useModal } from "@/hooks/ui/useModal";
 
+/**
+ * @package
+ */
 export const FormModal: FC = () => {
   const { isOpen, handleClose } = useModal("HOME_FORM");
 

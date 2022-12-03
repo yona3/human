@@ -12,6 +12,9 @@ const Logo: FC = () => (
   </Title>
 );
 
+/**
+ * @package
+ */
 export const Header: FC = () => {
   return (
     <MantineHeader height={60} px={"xl"}>

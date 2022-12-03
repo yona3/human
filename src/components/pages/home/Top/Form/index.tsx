@@ -5,6 +5,9 @@ import { useModal } from "@/hooks/ui/useModal";
 
 import { FormModal } from "./FormModal";
 
+/**
+ * @package
+ */
 export const Form: FC = () => {
   const { handleOpen } = useModal("HOME_FORM");
 

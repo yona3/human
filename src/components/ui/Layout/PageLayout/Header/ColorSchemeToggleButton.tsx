@@ -4,6 +4,9 @@ import type { FC } from "react";
 
 import { useColorScheme } from "@/hooks/ui/useColorScheme";
 
+/**
+ * @package
+ */
 export const ColorSchemeToggleButton: FC = () => {
   const { colorScheme, handleToggleColorScheme, isDark } = useColorScheme();
 

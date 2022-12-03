@@ -35,6 +35,9 @@ const HISTORY: EngravingHistory[] = [
   },
 ];
 
+/**
+ * @package
+ */
 export const EngravingHistory: FC = () => {
   const { s } = useStyling();
 

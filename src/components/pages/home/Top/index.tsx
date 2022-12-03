@@ -5,6 +5,9 @@ import { Form } from "./Form";
 import { Message } from "./Message";
 import { Time } from "./Time";
 
+/**
+ * @package
+ */
 export const Top: FC = () => {
   return (
     <Stack>

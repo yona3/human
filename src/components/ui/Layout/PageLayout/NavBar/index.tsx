@@ -18,6 +18,9 @@ const NAV_ITEMS = [
   { icon: IconSettings, label: "Settings", path: "/setings" },
 ];
 
+/**
+ * @package
+ */
 export const NavBar: FC = () => {
   const [active, setActive] = useState(0);
   const handleNavLinkClick = (index: number) => setActive(index);
