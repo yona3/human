@@ -3,6 +3,7 @@
  */
 export const ATOM_KEY = {
   ["MODAL_STATE"]: "MODAL_STATE",
+  ["WORK_STATUS_STATE"]: "WORK_STATUS_STATE",
 } as const;
 
 /**
