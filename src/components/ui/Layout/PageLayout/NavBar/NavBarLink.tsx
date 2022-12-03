@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { FC } from "react";
 import { useMemo } from "react";
 
-import { useNavBarStyles } from "./hooks/useNavbarStyles";
+import { useStyling } from "@/hooks/ui/useStyling";
 
 type NavbarLinkProps = {
   icon: TablerIcon;
@@ -24,20 +24,50 @@ export const NavbarLink: FC<NavbarLinkProps> = ({
   active,
   onClick: handleClick,
 }) => {
-  const { classes, cx } = useNavBarStyles();
+  const { s } = useStyling();
+
   const jsx = useMemo(
     () => (
       <Tooltip label={label} position="right" transitionDuration={0}>
         <UnstyledButton
           onClick={handleClick}
-          className={cx(classes.link, { [classes.active]: active })}
+          sx={(theme) => ({
+            width: 50,
+            height: 50,
+            borderRadius: theme.radius.md,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            ...s.theme.color("color", {
+              light: theme.colors.gray[7],
+              dark: theme.colors.dark[0],
+            }),
+            ["&:hover"]: {
+              ...s.theme.color("backgroundColor", {
+                light: theme.colors.gray[0],
+                dark: theme.colors.dark[5],
+              }),
+            },
+            ...s.conditional(!!active, {
+              ["&, &:hover"]: {
+                backgroundColor: theme.fn.variant({
+                  variant: "light",
+                  color: theme.primaryColor,
+                }).background,
+                color: theme.fn.variant({
+                  variant: "light",
+                  color: theme.primaryColor,
+                }).color,
+              },
+            }),
+          })}
         >
           <Icon stroke={1.5} />
         </UnstyledButton>
       </Tooltip>
     ),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [classes, active]
+    [active]
   );
 
   return <>{path ? <Link href={path}>{jsx}</Link> : jsx}</>;

@@ -26,10 +26,16 @@ export const useStyling = () => {
     [theme.breakpoints]
   );
 
+  const conditional = useCallback(
+    (condition: boolean, styles: Sx) => (condition ? styles : {}),
+    []
+  );
+
   const s = {
     theme: {
       color,
     },
+    conditional,
     responsive,
   };
 
