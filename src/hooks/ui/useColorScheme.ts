@@ -13,7 +13,11 @@ type ColorSchemeState = {
     | "system"; // システムの設定に合わせる
 };
 
-// TODO: state更新時のエラー修正
+/**
+ * TODO:
+ * - state更新時のエラー修正
+ * - 初回レンダリング時の画面のチラつきを修正
+ */
 
 export const useColorScheme = () => {
   const defaultValue: ColorSchemeState = {
