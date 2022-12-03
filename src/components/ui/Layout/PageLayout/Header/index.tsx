@@ -1,6 +1,8 @@
-import { Flex, Header as MantineHeader, Title } from "@mantine/core";
+import { Burger, Flex, Header as MantineHeader, Title } from "@mantine/core";
 import { Comfortaa } from "@next/font/google";
 import type { FC } from "react";
+
+import { useStyling } from "@/hooks/ui/useStyling";
 
 import { ColorSchemeToggleButton } from "./ColorSchemeToggleButton";
 
@@ -13,14 +15,47 @@ const Logo: FC = () => (
 );
 
 /**
+ * TODO:
+ * - NavBarのレスポンシブ対応
+ *   - PC版のNavBar別のものにしたい (ex. full pageモーダル)
+ */
+
+/**
  * @package
  */
 export const Header: FC = () => {
+  const { s } = useStyling();
+
   return (
-    <MantineHeader height={60} px={"xl"}>
-      <Flex h={60} justify={"space-between"} align={"center"}>
-        <Logo />
-        <ColorSchemeToggleButton />
+    <MantineHeader
+      height={60}
+      sx={{
+        padding: "0 24px",
+        ...s.responsive("sm", {
+          padding: "0 14px",
+        }),
+      }}
+    >
+      <Flex align="center">
+        <Burger
+          opened={false}
+          // eslint-disable-next-line react/jsx-handler-names
+          onClick={() => {
+            console.log("click");
+          }}
+          size="sm"
+          mr="sm"
+          sx={{
+            display: "none",
+            ...s.responsive("sm", {
+              display: "block",
+            }),
+          }}
+        />
+        <Flex h={60} w="100%" justify={"space-between"} align={"center"}>
+          <Logo />
+          <ColorSchemeToggleButton />
+        </Flex>
       </Flex>
     </MantineHeader>
   );

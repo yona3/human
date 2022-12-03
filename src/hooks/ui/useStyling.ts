@@ -19,9 +19,10 @@ export const useStyling = () => {
   );
 
   const responsive = useCallback(
-    (size: MantineSize, styles: Sx) => ({
-      [`@media (max-width: ${theme.breakpoints[size]}px)`]: styles,
-    }),
+    (size: MantineSize, styles: Sx) =>
+      ({
+        [`@media (max-width: ${theme.breakpoints[size]}px)`]: styles,
+      } as Sx),
     [theme.breakpoints]
   );
 

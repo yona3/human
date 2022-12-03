@@ -3,11 +3,13 @@ import { IconMoonStars, IconSun } from "@tabler/icons";
 import type { FC } from "react";
 
 import { useColorScheme } from "@/hooks/ui/useColorScheme";
+import { useStyling } from "@/hooks/ui/useStyling";
 
 /**
  * @package
  */
 export const ColorSchemeToggleButton: FC = () => {
+  const { s } = useStyling();
   const { colorScheme, handleToggleColorScheme, isDark } = useColorScheme();
 
   return (
@@ -19,10 +21,13 @@ export const ColorSchemeToggleButton: FC = () => {
         size="lg"
         radius={"md"}
         sx={(theme) => ({
-          backgroundColor:
-            theme.colorScheme === "dark"
-              ? theme.colors.dark[6]
-              : theme.colors.gray[0],
+          ...s.theme.color("backgroundColor", {
+            light: theme.colors.gray[0],
+            dark: theme.colors.dark[6],
+          }),
+          ...s.responsive("sm", {
+            display: "none",
+          }),
         })}
       >
         {colorScheme === "dark" ? (

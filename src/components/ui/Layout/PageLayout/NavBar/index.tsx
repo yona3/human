@@ -9,6 +9,8 @@ import {
 import type { FC } from "react";
 import { useState } from "react";
 
+import { useStyling } from "@/hooks/ui/useStyling";
+
 import { NavbarLink } from "./NavBarLink";
 
 const NAV_ITEMS = [
@@ -22,6 +24,7 @@ const NAV_ITEMS = [
  * @package
  */
 export const NavBar: FC = () => {
+  const { s } = useStyling();
   const [active, setActive] = useState(0);
   const handleNavLinkClick = (index: number) => setActive(index);
 
@@ -35,7 +38,15 @@ export const NavBar: FC = () => {
   ));
 
   return (
-    <Navbar width={{ base: 80 }} p="md">
+    <Navbar
+      w="80px"
+      p="md"
+      sx={{
+        ...s.responsive("sm", {
+          display: "none",
+        }),
+      }}
+    >
       <Navbar.Section grow>
         <Stack justify="center" spacing={0}>
           {links}
