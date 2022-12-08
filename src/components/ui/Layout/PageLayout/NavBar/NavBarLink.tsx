@@ -67,7 +67,7 @@ export const NavbarLink: FC<NavbarLinkProps> = ({
       </Tooltip>
     ),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [active]
+    [s, active]
   );
 
   return <>{path ? <Link href={path}>{jsx}</Link> : jsx}</>;
