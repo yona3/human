@@ -11,15 +11,21 @@ import type { FC } from "react";
 
 import { EmojiRating } from "@/components/ui/Parts/EmojiRating";
 import { useModal } from "@/hooks/ui/useModal";
+import { useNotification } from "@/hooks/ui/useNotification";
 
 /**
  * @package
  */
 export const FormModal: FC = () => {
   const { isOpen, handleClose } = useModal("HOME_FORM");
+  const { handleShowNotification } = useNotification();
 
   const handleSubmit = () => {
     // ...
+    handleShowNotification({
+      type: "success",
+      title: "出勤記録を送信しました。",
+    });
     handleClose();
   };
 

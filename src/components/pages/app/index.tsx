@@ -1,4 +1,5 @@
 import { MantineProvider } from "@mantine/core";
+import { NotificationsProvider } from "@mantine/notifications";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { RecoilRoot } from "recoil";
@@ -9,7 +10,7 @@ export const App = ({ Component, pageProps }: AppProps) => {
   const { colorScheme } = useColorScheme();
 
   return (
-    <RecoilRoot>
+    <>
       <Head>
         <title>human</title>
         <link rel="shortcut icon" href="/favicon.svg" />
@@ -26,8 +27,12 @@ export const App = ({ Component, pageProps }: AppProps) => {
           colorScheme,
         }}
       >
-        <Component {...pageProps} />
+        <RecoilRoot>
+          <NotificationsProvider>
+            <Component {...pageProps} />
+          </NotificationsProvider>
+        </RecoilRoot>
       </MantineProvider>
-    </RecoilRoot>
+    </>
   );
 };
