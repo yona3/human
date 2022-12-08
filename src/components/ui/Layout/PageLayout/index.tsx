@@ -8,11 +8,16 @@ import { NavBar } from "./NavBar";
 type PageLayoutProps = {
   title: string;
   children: ReactNode;
+  isHideNavBar?: boolean;
 };
 
-export const PageLayout: FC<PageLayoutProps> = ({ title, children }) => {
+export const PageLayout: FC<PageLayoutProps> = ({
+  title,
+  children,
+  isHideNavBar = false,
+}) => {
   return (
-    <AppShell navbar={<NavBar />} header={<Header />}>
+    <AppShell navbar={!isHideNavBar ? <NavBar /> : <></>} header={<Header />}>
       <Head>
         <title>{title}</title>
       </Head>
