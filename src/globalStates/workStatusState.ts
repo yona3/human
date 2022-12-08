@@ -12,6 +12,6 @@ type WorkStatus =
  * @package
  */
 export const workStatusState = atom<WorkStatus | null>({
-  key: ATOM_KEY.WORK_STATUS_STATE,
+  key: ATOM_KEY.WORK_STATUS,
   default: null,
 });

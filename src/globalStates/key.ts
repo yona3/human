@@ -2,8 +2,8 @@
  * @package
  */
 export const ATOM_KEY = {
-  ["MODAL_STATE"]: "MODAL_STATE",
-  ["WORK_STATUS_STATE"]: "WORK_STATUS_STATE",
+  ["MODAL"]: "MODAL",
+  ["WORK_STATUS"]: "WORK_STATUS",
 } as const;
 
 /**

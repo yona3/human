@@ -13,6 +13,6 @@ type ModalState = {
  * @package
  */
 export const modalState = atom<ModalState | null>({
-  key: ATOM_KEY.MODAL_STATE,
+  key: ATOM_KEY.MODAL,
   default: null,
 });
