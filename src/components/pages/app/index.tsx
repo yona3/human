@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { RecoilRoot } from "recoil";
 
+import { Auth } from "@/components/functional/Auth";
 import { useColorScheme } from "@/hooks/ui/useColorScheme";
 
 export const App = ({ Component, pageProps }: AppProps) => {
@@ -28,9 +29,11 @@ export const App = ({ Component, pageProps }: AppProps) => {
         }}
       >
         <RecoilRoot>
-          <NotificationsProvider>
-            <Component {...pageProps} />
-          </NotificationsProvider>
+          <Auth>
+            <NotificationsProvider>
+              <Component {...pageProps} />
+            </NotificationsProvider>
+          </Auth>
         </RecoilRoot>
       </MantineProvider>
     </>

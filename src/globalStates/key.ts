@@ -4,6 +4,7 @@
 export const ATOM_KEY = {
   ["MODAL"]: "MODAL",
   ["WORK_STATUS"]: "WORK_STATUS",
+  ["ME"]: "ME",
 } as const;
 
 /**
