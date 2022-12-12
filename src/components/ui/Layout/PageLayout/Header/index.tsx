@@ -1,5 +1,6 @@
 import { Burger, Flex, Header as MantineHeader, Title } from "@mantine/core";
 import { Comfortaa } from "@next/font/google";
+import Link from "next/link";
 import type { FC } from "react";
 
 import { useStyling } from "@/hooks/ui/useStyling";
@@ -9,9 +10,11 @@ import { ColorSchemeToggleButton } from "./ColorSchemeToggleButton";
 const comfortaa = Comfortaa({ weight: "300", subsets: ["latin"] });
 
 const Logo: FC = () => (
-  <Title order={1} size="h3" className={comfortaa.className}>
-    human
-  </Title>
+  <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
+    <Title order={1} size="h3" className={comfortaa.className}>
+      human
+    </Title>
+  </Link>
 );
 
 /**

@@ -1,10 +1,14 @@
 import type { ButtonProps } from "@mantine/core";
 import { Button } from "@mantine/core";
+import type { MouseEventHandler } from "react";
 
 import { GoogleIcon } from "@/components/ui/Icons/GoogleIcon";
 import { useStyling } from "@/hooks/ui/useStyling";
 
-export const GoogleButton = (props: ButtonProps) => {
+export const GoogleButton = (
+  // props: PolymorphicComponentProps<"button", ButtonProps>
+  props: ButtonProps & { onClick?: MouseEventHandler<HTMLButtonElement> }
+) => {
   const { s } = useStyling();
 
   return (

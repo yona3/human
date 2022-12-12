@@ -7,8 +7,10 @@ import {
   IconUser,
 } from "@tabler/icons";
 import type { FC } from "react";
+import { useCallback } from "react";
 import { useState } from "react";
 
+import { useAuth } from "@/hooks/auth/useAuth";
 import { useStyling } from "@/hooks/ui/useStyling";
 
 import { NavbarLink } from "./NavBarLink";
@@ -26,7 +28,11 @@ const NAV_ITEMS = [
 export const NavBar: FC = () => {
   const { s } = useStyling();
   const [active, setActive] = useState(0);
-  const handleNavLinkClick = (index: number) => setActive(index);
+  const handleNavLinkClick = useCallback(
+    (index: number) => setActive(index),
+    []
+  );
+  const { handleSignOut } = useAuth();
 
   const links = NAV_ITEMS.map((link, index) => (
     <NavbarLink
@@ -54,7 +60,11 @@ export const NavBar: FC = () => {
       </Navbar.Section>
       <Navbar.Section>
         <Stack justify="center" spacing={0}>
-          <NavbarLink icon={IconLogout} label="Logout" />
+          <NavbarLink
+            icon={IconLogout}
+            label="Logout"
+            onClick={() => handleSignOut()}
+          />
         </Stack>
       </Navbar.Section>
     </Navbar>
