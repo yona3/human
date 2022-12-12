@@ -30,7 +30,7 @@ jobs:
       - name: Create env file
         run: |
           touch .env
-          echo NEXT_PUBLIC_SUPABASE_URL=abc >> .env
+          echo NEXT_PUBLIC_SUPABASE_URL=https://{id}.supabase.co >> .env
           echo NEXT_PUBLIC_SUPABASE_ANON_KEY=abc >> .env
       - name: Run build
         run: yarn build
